@@ -1,0 +1,31 @@
+name: EAS Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: Platform
+        type: choice
+        options: [android, ios, all]
+        default: android
+      profile:
+        description: Build profile (preview = APK, production = store build)
+        type: choice
+        options: [preview, production]
+        default: preview
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: npm install --no-audit --no-fund
+      - run: eas build --platform ${{ inputs.platform }} --profile ${{ inputs.profile }} --non-interactive --no-wait

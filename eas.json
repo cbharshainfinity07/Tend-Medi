@@ -1,0 +1,47 @@
+{
+  "cli": {
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EAS_NO_FROZEN_LOCKFILE": "1"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "TEND_BLOCK_INTERNET": "1",
+        "EAS_NO_FROZEN_LOCKFILE": "1"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "env": {
+        "TEND_BLOCK_INTERNET": "1",
+        "EAS_NO_FROZEN_LOCKFILE": "1"
+      }
+    },
+    "ios-simulator": {
+      "extends": "preview",
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "EAS_NO_FROZEN_LOCKFILE": "1"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
