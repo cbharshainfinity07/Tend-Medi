@@ -41,7 +41,15 @@ const config: ExpoConfig = {
       'android.permission.VIBRATE',
       'android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS',
     ],
-    blockedPermissions: blockInternet ? ['android.permission.INTERNET'] : [],
+    // Pulled in by libraries but never used: the photo picker needs no storage access,
+    // and overlay/dump permissions only alarm users and Play review.
+    blockedPermissions: [
+      'android.permission.SYSTEM_ALERT_WINDOW',
+      'android.permission.READ_EXTERNAL_STORAGE',
+      'android.permission.WRITE_EXTERNAL_STORAGE',
+      'android.permission.DUMP',
+      ...(blockInternet ? ['android.permission.INTERNET'] : []),
+    ],
     predictiveBackGestureEnabled: false,
   },
   web: {
