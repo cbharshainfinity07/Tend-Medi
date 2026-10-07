@@ -54,9 +54,10 @@ No account. No cloud. Works completely offline.
 
 ## Download
 
+**Android:** download **[Tend-1.0.0.apk](https://github.com/cbharshainfinity07/Tend-Medi/releases/latest)** from Releases on your phone and open it to install. The `.aab` there is for Google Play.
+
 Builds are made in the cloud with [EAS Build](https://expo.dev/accounts/cbharsha200/projects/tend/builds).
 
-- **Android:** open the latest **preview** build on the builds page and install the `.apk` on your phone. The **production** build is the `.aab` for Google Play.
 - **iPhone:** installing on a real iPhone needs an Apple Developer account. Until then, run it in **Expo Go** (below) or use the iOS Simulator build.
 
 ## Run it locally
